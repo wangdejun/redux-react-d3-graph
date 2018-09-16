@@ -7,6 +7,11 @@ class GraphFlow extends Component {
     this.draw = new Draw();
   }
 
+  componentDidMount(){
+    let draw = this.draw;
+    draw.init();
+  }
+
   render() {
     return (
       <div>

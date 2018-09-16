@@ -17,7 +17,8 @@ Operatiosn on Links(archs)
     * to activate the editable state;
 
 ## eslint 
-use the command below to lint the code
-```npm run lint```
-and this command to fix eslint errors
-```npm run lint:fix```
+* use the command below to lint the code
+```npm run eslint```
+
+* and this command to fix eslint errors
+```npm run eslint:fix```
