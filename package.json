@@ -1,7 +1,7 @@
 {
   "name": "redux-react-d3-graph",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.1",
+  "description": "redux, react, d3 graph ,flow",
   "main": "index.js",
   "scripts": {
     "test": "test"
@@ -10,6 +10,13 @@
     "type": "git",
     "url": "git+https://github.com/wangdejun/redux-react-d3-graph.git"
   },
+  "keywords": [
+    "redux",
+    "react",
+    "d3",
+    "graph",
+    "flow"
+  ],
   "author": "wangdejun",
   "license": "MIT",
   "bugs": {
