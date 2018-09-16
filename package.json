@@ -4,7 +4,9 @@
   "description": "redux, react, d3 graph ,flow",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "lint": "./node_modules/.bin/eslint index.js",
+    "lint:fix": "./node_modules/.bin/eslint index.js --fix"
   },
   "repository": {
     "type": "git",
@@ -25,5 +27,13 @@
   "homepage": "https://github.com/wangdejun/redux-react-d3-graph#readme",
   "dependencies": {
     "d3": "^5.7.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^9.0.0",
+    "eslint": "^5.6.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.1"
   }
 }
