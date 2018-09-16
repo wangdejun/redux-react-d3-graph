@@ -12,6 +12,7 @@ export default class Draw{
       .on('click',function(d){
         console.log("do something here when a link is clicked");
       });
+
     pathNow.append('path')
       .datum(data)
       .attr('d', function(t){
@@ -22,6 +23,27 @@ export default class Draw{
           100
         );
       })
+    pathNow.append('path')
+      .datum(data)
+      .attr('d',function(t){
+        return self.createD(
+          {x: t.source.x, y: t.source.y + t.source.r}, 
+          {x: t.target.x, y: t.target.y - t.target.r},
+          10,
+          100
+        );
+      })
+      .attr('pointer-events', 'auto')
+      .attr('class', 'link background-link')
+      .on('mouseover', function(x){
+        d3.select(this).classed('background-link', null);
+        d3.select(this).classed('background-link-show', true);
+      })
+      on('mouseout', function(x){
+        d3.select(this).classed('background-link', true);
+        d3.select(this).classed('background-link-show', null);
+      })
+      return pathNow;
   }
 
   createD(source, target, dx, dy){
