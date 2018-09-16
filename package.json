@@ -1,5 +1,5 @@
 {
-  "name": "redux-react-d3-graph",
+  "name": "ReduxGraphFlow",
   "version": "1.0.2",
   "description": "redux, react, d3 graph ,flow",
   "main": "index.js",
