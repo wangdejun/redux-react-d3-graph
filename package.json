@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/wangdejun/redux-react-d3-graph/issues"
   },
-  "homepage": "https://github.com/wangdejun/redux-react-d3-graph#readme"
+  "homepage": "https://github.com/wangdejun/redux-react-d3-graph#readme",
+  "dependencies": {
+    "d3": "^5.7.0"
+  }
 }
