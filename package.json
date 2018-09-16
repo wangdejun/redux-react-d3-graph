@@ -1,0 +1,19 @@
+{
+  "name": "redux-react-d3-graph",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wangdejun/redux-react-d3-graph.git"
+  },
+  "author": "wangdejun",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wangdejun/redux-react-d3-graph/issues"
+  },
+  "homepage": "https://github.com/wangdejun/redux-react-d3-graph#readme"
+}
