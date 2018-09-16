@@ -1,7 +1,7 @@
-# redux-react-d3-graph
+# redux-react-d3-flow-graph
 
-## a DAG flow graph component
-This is an component which showing how to draw a dag graph with d3, and synchronize state with other components, using Redux.
+## a tree flow graph component
+This is an component which showing how to draw a tree graph with d3, and synchronize state with other components, using Redux.
 
 Operations on Nodes
 * <b>add / delete / drag postion</b>
@@ -15,7 +15,6 @@ Operatiosn on Links(archs)
     * manipulate the links in the flow
 * <b>hover/click</b>
     * to activate the editable state;
-
 
 ## eslint 
 use the command below to lint the code
