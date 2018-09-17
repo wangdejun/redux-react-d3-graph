@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import GraphFlow from '../../src';
+import GraphFlow from '../src';
 
 class Test extends Component {
     render() {
@@ -12,4 +12,4 @@ class Test extends Component {
     }
 }
 
-ReactDOM.render(<Test>, document.getElementById('root'));
+ReactDOM.render(<Test/>, document.getElementById('root'));
