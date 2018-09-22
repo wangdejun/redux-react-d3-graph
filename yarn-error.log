@@ -1,0 +1,84 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn add webpack-cli -g
+
+PATH: 
+  /Library/Frameworks/Python.framework/Versions/2.7/bin:/Users/wangdejun/anaconda/bin:/Library/Frameworks/Python.framework/Versions/3.5/bin:/opt/local/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/Users/wangdejun/.rvm/gems/ruby-2.0.0-p643/bin:/Users/wangdejun/.rvm/gems/ruby-2.0.0-p643@global/bin:/Users/wangdejun/.rvm/rubies/ruby-2.0.0-p643/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/Library/TeX/texbin:/Users/wangdejun/.rvm/bin:/opt/apache-maven/bin
+
+Yarn version: 
+  1.9.4
+
+Node version: 
+  9.2.1
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: http://registry.npmjs.org/d3: ETIMEDOUT
+      at Timeout._onTimeout (/usr/local/lib/node_modules/yarn/lib/cli.js:138128:19)
+      at ontimeout (timers.js:478:11)
+      at tryOnTimeout (timers.js:302:5)
+      at Timer.listOnTimeout (timers.js:262:5)
+
+npm manifest: 
+  {
+    "name": "redux-graph-flow",
+    "version": "1.0.10",
+    "description": "redux, react, d3 graph ,flow",
+    "main": "index.js",
+    "scripts": {
+      "start": "webpack-dev-server",
+      "eslint": "./node_modules/.bin/eslint index.js",
+      "eslint:fix": "./node_modules/.bin/eslint ./src/index.js --fix"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/wangdejun/redux-react-d3-graph.git"
+    },
+    "keywords": [
+      "redux",
+      "react",
+      "d3",
+      "graph",
+      "flow"
+    ],
+    "author": "wangdejun",
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/wangdejun/redux-react-d3-graph/issues"
+    },
+    "homepage": "https://github.com/wangdejun/redux-react-d3-graph#readme",
+    "dependencies": {
+      "d3": "^5.7.0",
+      "react": "^16.5.1",
+      "react-dom": "^16.5.1",
+      "webpack-dev-server": "^3.1.8"
+    },
+    "devDependencies": {
+      "babel-cli": "^6.26.0",
+      "babel-core": "6.24.1",
+      "babel-eslint": "^9.0.0",
+      "babel-loader": "7.0.0",
+      "babel-plugin-import": "1.2.0",
+      "babel-plugin-transform-decorators-legacy": "1.3.4",
+      "babel-plugin-transform-runtime": "^6.23.0",
+      "babel-preset-env": "^1.7.0",
+      "babel-preset-es2015": "6.24.1",
+      "babel-preset-react": "6.24.1",
+      "babel-preset-stage-2": "6.24.1",
+      "eslint": "^5.6.0",
+      "eslint-config-airbnb": "^17.1.0",
+      "eslint-plugin-import": "^2.14.0",
+      "eslint-plugin-jsx-a11y": "^6.1.1",
+      "eslint-plugin-react": "^7.11.1",
+      "extract-text-webpack-plugin": "^3.0.2",
+      "webpack": "^4.19.1",
+      "webpack-cli": "^3.1.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

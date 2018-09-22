@@ -1,13 +1,13 @@
 var path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  entry: './example/index.js',
+  entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'my-first-webpack.bundle.js'
+    filename: 'bundle.js'
   },
-
+  mode: 'development',
   module: {
     rules: [
       {
@@ -27,10 +27,9 @@ module.exports = {
           ]
         })
       },
-
       {
         test: /\.(jsx|js)$/,
-        include: [ path.resolve(__dirname, './example') ],
+        include: [ path.resolve(__dirname, './src') ],
         use: {
           loader: 'babel-loader',
           options: {
@@ -44,7 +43,6 @@ module.exports = {
           }
         }
       }
-
     ]
   },
 
