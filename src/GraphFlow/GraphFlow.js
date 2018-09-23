@@ -4,7 +4,6 @@ import Draw from './Draw';
 class GraphFlow extends Component {
   constructor(props) {
     super(props);
-
     this.state={
       data:{
         nodes:[
