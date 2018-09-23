@@ -1,54 +1,29 @@
 var path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
-  },
-  mode: 'development',
-  module: {
-    rules: [
-      {
-        test: /\.(less|css)$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                minimize: true
-              }
-            },
-            {
-              loader: 'less-loader'
+    mode:"development",
+    entry:"./src/index.js",
+    output:{
+        path: path.resolve(__dirname, 'dist'),
+        filename: "bundle.js",
+    },
+    module: {
+        rules: [
+          {
+            test: /\.js$/,
+            exclude: /(node_modules|bower_components)/,
+            use: {
+              loader: 'babel-loader',
             }
-          ]
-        })
-      },
-      {
-        test: /\.(jsx|js)$/,
-        include: [ path.resolve(__dirname, './src') ],
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['es2015', 'stage-2', 'react'],
-            plugins: [
-              "transform-runtime",
-              ['import', {
-                style: true
-              }]
-            ]
           }
-        }
-      }
-    ]
-  },
-
-  devServer: {
-    contentBase: path.join(__dirname, 'dist'),
-    compress: true,
-    port: 9000
-  }
+        ]
+    },
+    //webpack-dev-server
+    devServer: {
+        contentBase: path.join(__dirname, 'public'),
+        compress: true,
+        port: 9000
+    }
 };
+
+

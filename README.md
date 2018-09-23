@@ -20,5 +20,5 @@ Operatiosn on Links(archs)
 * use the command below to lint the code
 ```npm run eslint```
 
-* and this command to fix eslint errors
+* and this command to fix eslint warnnings & errors
 ```npm run eslint:fix```
