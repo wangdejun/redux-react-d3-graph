@@ -4,15 +4,22 @@ import Draw from './Draw';
 class GraphFlow extends Component {
   constructor(props) {
     super(props);
+
     this.state={
       data:{
         nodes:[
-          {'name':'graph-flow-1','x':500,'y':600},
-          {'name':'graph-flow-2','x':100,'y':200},
+          {'name':'graph-flow-1','x':500,'y':600, width:100, height:100},
+          {'name':'graph-flow-2','x':100,'y':200, width:100, height:100},
         ],
-        links:[],
+        links:[
+          {
+            'source':{x:500, y: 600, r:100},
+            'target':{x:100, y: 200, r: 100},
+          }
+        ],
       }
     }
+
     this.draw = new Draw();
   }
 
@@ -21,9 +28,15 @@ class GraphFlow extends Component {
     draw.init();
     if(this.state.data&&this.state.data.nodes){
       this.state.data.nodes.map(node=>{
-        draw.addNode(node)
+        draw.addNode(node);
       });
-    }
+    };
+
+    if(this.state.data&&this.state.data.links){
+      this.state.data.links.map(link=>{
+        draw.addLink(link);
+      })
+    };
   }
 
   handleDrop=(e)=>{
