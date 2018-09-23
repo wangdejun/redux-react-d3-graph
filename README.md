@@ -1,5 +1,7 @@
+
 # redux-react-d3-flow-graph
 <a href='https://www.npmjs.com/package/redux-graph-flow'>redux-graph-flow</a> as a npm package
+
 ## a tree flow graph component
 This is an component which showing how to draw a tree graph with d3, and synchronize state with other components, using Redux.
 
@@ -20,5 +22,5 @@ Operatiosn on Links(archs)
 * use the command below to lint the code
 ```npm run eslint```
 
-* and this command to fix eslint errors
+* and this command to fix eslint warnnings & errors
 ```npm run eslint:fix```
