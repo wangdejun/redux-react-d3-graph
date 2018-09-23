@@ -1,10 +1,10 @@
 {
   "name": "redux-graph-flow",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "redux, react, d3 graph ,flow",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --hot --inline",
     "eslint": "./node_modules/.bin/eslint ./src/index.js",
     "eslint:fix": "./node_modules/.bin/eslint ./src/index.js --fix"
   },
@@ -46,6 +46,7 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.1",
+    "html-webpack-plugin": "^3.2.0",
     "webpack": "^4.19.1",
     "webpack-cli": "^3.1.0"
   }
