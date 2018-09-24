@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Draw from './Draw';
+import './GraphFlow.less';
 
 class GraphFlow extends Component {
   constructor(props) {
@@ -68,7 +69,6 @@ class GraphFlow extends Component {
         </ul>
         <svg id="board" width={1500} height={2000} onDragOver={this.handleDragOver} onDrop={this.handleDrop} style={{border:"1px solid #aaa", marginLeft:"200px",marginTop:"60px"}}>
           <g>
-            牛逼
             <defs>
               <marker id="arrow" markerUnits="strokeWidth" markerWidth="12" markerHeight="12" viewBox="0 0 12 12" refX="6" refY="6" orient="auto">
                 <path d="M0,3 L6,6 L0,9 L3,6 L0,3" fill="red"></path>
@@ -77,14 +77,7 @@ class GraphFlow extends Component {
           </g>
           <g id="dagre_main" className="container"></g>
         </svg>
-        <svg width="100" height="100">
-      <path d=" M 10 25
-                  L 10 75
-                  L 60 75
-                  L 10 25"
-                  stroke="red" stroke-width="2" fill="none" />
-      <path d="M1,5L20,20L40,10L60,40L80,5L100,60" stroke="blue" stroke-width="2" fill="none"></path>
-      </svg>
+        <svg width="100" height="100"></svg>
       </div>
     );
   }

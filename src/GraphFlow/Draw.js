@@ -1,5 +1,6 @@
 const d3 = require('d3');
 
+
 export default class Draw{
   constructor(){
     this.doZoom = { scaleNow: 1 };
@@ -49,11 +50,7 @@ export default class Draw{
       })
       .attr('pointer-events', 'auto')
       .attr('marker-end', 'url(#arrow)')
-      .attr("fill", "none")
-      .attr('class', function(t) {
-        let statusClass = 'successRun';
-        return 'link ' + statusClass;
-      });
+      .attr('class', function(t) {});
 
     linkCurrent.append('path')
       .datum(link)
@@ -70,12 +67,6 @@ export default class Draw{
         d3.select(this).classed('backgroundLink', true);
         d3.select(this).classed('backgroundLinkShow', null);
       });
-
-
-
- 
-
-
     return linkCurrent;
   }
 
