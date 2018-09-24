@@ -22,7 +22,6 @@ export default class Draw{
           console.log("drag end here!");
         })
     );
-
     nodes.append('rect')
       .attr('x', d=>d.x).attr('y', d=>d.y)
       .attr('class', 'nodeRect')
@@ -36,17 +35,12 @@ export default class Draw{
   }
 
   addLink=(link)=>{
-    console.log("---->A")
-    console.log(link);
-    console.log("---->B")
     let self = this;
     let linkCurrent = d3.select('.container').append('g')
     .on('click', (d)=>{
       console.log(d);
     })
     .datum(link)
-    console.log("---->C")
-
 
     linkCurrent.append('path')
       .datum(link)
@@ -55,11 +49,12 @@ export default class Draw{
       })
       .attr('pointer-events', 'auto')
       .attr('marker-end', 'url(#arrow)')
+      .attr("fill", "none")
       .attr('class', function(t) {
         let statusClass = 'successRun';
         return 'link ' + statusClass;
       });
-    console.log("---->D")
+
     linkCurrent.append('path')
       .datum(link)
       .attr('d', function(t) {
@@ -75,6 +70,11 @@ export default class Draw{
         d3.select(this).classed('backgroundLink', true);
         d3.select(this).classed('backgroundLinkShow', null);
       });
+
+
+
+ 
+
 
     return linkCurrent;
   }
