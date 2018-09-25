@@ -5,7 +5,7 @@
 ## a tree flow graph component
 This will be a simple react component which showing how to draw a tree graph with d3, and synchronize state with other components, using Redux.
 
-When we want to draw a flow which can be operated on the page  and synchroize state with the persistence layer(e.g. ReduxStore/Server/DB). I think that two sort of operations are essential:
+When we want to draw a flow which can be operated on the page  and synchroize state with the persistence layer(e.g. ReduxStore/Server/DB). As far as I am concerned there are two sort of operations which should be provide to the user:
 
 * Firstly, Operations upon <b>Node</b>
     * ADD / DELETE / DRAG POSITION
