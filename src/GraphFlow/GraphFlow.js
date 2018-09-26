@@ -8,18 +8,18 @@ class GraphFlow extends Component {
     this.state={
       data:{
         nodes:[
-          {'name':'graph-flow-1','x':500,'y':600, width:100, height:100},
-          {'name':'graph-flow-2','x':100,'y':200, width:100, height:100},
-          {'name':'graph-flow-3','x':200,'y':400, width:100, height:100},
+          {'name':'graph-flow-1','x':500,'y':600, width:50, height:50},
+          {'name':'graph-flow-2','x':100,'y':200, width:50, height:50},
+          {'name':'graph-flow-3','x':200,'y':400, width:50, height:50},
         ],
         links:[
           {
-            'source':{x:500, y: 600, r:100},
-            'target':{x:100, y: 200, r:100},
+            'source':{x:500, y: 600, r:10},
+            'target':{x:100, y: 200, r:10},
           },
           {
-            'source':{x:200, y: 400, r:100},
-            'target':{x:100, y: 200, r:100},
+            'source':{x:200, y: 400, r:10},
+            'target':{x:100, y: 200, r:10},
           }
         ],
       }
@@ -71,7 +71,8 @@ class GraphFlow extends Component {
           <g>
             <defs>
               <marker id="arrow" markerUnits="strokeWidth" markerWidth="12" markerHeight="12" viewBox="0 0 12 12" refX="6" refY="6" orient="auto">
-                <path d="M0,3 L6,6 L0,9 L3,6 L0,3" fill="red"></path>
+                <path d="" fill="none"></path>
+                <path d="M10 60 C 20 80, 40 80, 50 60" stroke="3" fill="none"/>
               </marker>
             </defs>
           </g>
