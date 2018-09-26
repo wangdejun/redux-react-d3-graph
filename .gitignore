@@ -2,3 +2,5 @@
 node_modules/
 test/node_modules/
 .vscode/
+index.html
+dist/

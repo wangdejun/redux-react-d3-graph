@@ -1,5 +1,6 @@
 const d3 = require('d3');
 
+
 export default class Draw{
   constructor(){
     this.doZoom = { scaleNow: 1 };
@@ -45,42 +46,23 @@ export default class Draw{
     linkCurrent.append('path')
       .datum(link)
       .attr('d', function(t) {
-        return self.creatD({ x: t.source.x, y: t.source.y + t.source.r }, { x: t.target.x, y: t.target.y - t.target.r }, 10, 100);
+        return self.creatPath({ x: t.source.x, y: t.source.y + t.source.r }, { x: t.target.x, y: t.target.y - t.target.r }, 10, 200);
       })
       .attr('pointer-events', 'auto')
       .attr('marker-end', 'url(#arrow)')
-      .attr("fill", "none")
-      .attr('class', function(t) {
-        let statusClass = 'successRun';
-        return 'link ' + statusClass;
-      });
+      .attr('class', 'link backgroundLink')
 
     linkCurrent.append('path')
       .datum(link)
       .attr('d', function(t) {
-        return self.creatD({ x: t.source.x, y: t.source.y + t.source.r }, { x: t.target.x, y: t.target.y - t.target.r }, 10, 100);
+        return self.creatPath({ x: t.source.x, y: t.source.y + t.source.r }, { x: t.target.x, y: t.target.y - t.target.r }, 10, 200);
       })
       .attr('pointer-events', 'auto')
       .attr('class', 'link backgroundLink')
-      .on('mouseover', function(t) {
-        d3.select(this).classed('backgroundLink', null);
-        d3.select(this).classed('backgroundLinkShow', true);
-      })
-      .on('mouseout', function(t) {
-        d3.select(this).classed('backgroundLink', true);
-        d3.select(this).classed('backgroundLinkShow', null);
-      });
-
-
-
- 
-
-
     return linkCurrent;
   }
 
-  //返回d属性
-  creatD(start, end, dx, dy) {
+  creatPath(start, end, dx, dy) {
       return 'M ' + start.x + ' ' + start.y + ' C ' + (start.x - dx) + ' ' + (start.y + dy) + ' ' + (end.x + dx) + ' ' + (end.y - dy) + ' ' + end.x + ' ' + end.y;
   }
 

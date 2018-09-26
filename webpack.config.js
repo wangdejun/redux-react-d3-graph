@@ -14,13 +14,27 @@ module.exports = {
     })],
     module: {
         rules: [
-          {
+        {
             test: /\.js$/,
             exclude: /(node_modules|bower_components)/,
             use: {
               loader: 'babel-loader',
             }
-          }
+        },
+        {
+            test: /\.(less)$/,
+            use: [{
+              loader: 'style-loader'
+            }, {
+              loader: 'css-loader'
+            }, {
+              loader: 'less-loader', options: {
+                strictMath: true,
+                noIeCompat: true
+              }
+            }
+            ]
+        }
         ]
     },
     //webpack-dev-server
