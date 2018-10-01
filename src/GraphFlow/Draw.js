@@ -10,16 +10,21 @@ export default class Draw{
     let nodes = d3.select(".container")
       .append('g')
       .on('click', (d)=>{
+        console.log("clicked node")
         console.log(d);
       })
       .datum(node)
       .attr('class', 'node').attr('id', (d)=>`id${d.name}`)
-      .on('mousedown',d=>{d3.event.stopPropagation();})
-      .call(d3.drag().filter(d=>{})
+      .on('mousedown',d=>{d3.event.stopPropagation()})
+      .call(d3.drag().filter(d=>{
+        return d;
+      })
         .on('drag',d=>{
+          console.log(d);
           console.log("drag here");
         })
         .on('end', d=>{
+          console.log(d);
           console.log("drag end here!");
         })
     );
@@ -28,10 +33,11 @@ export default class Draw{
       .attr('class', 'nodeRect')
       .attr('width', d=>d.width)
       .attr('height', d=>d.height)
-      .style('background-color', 'blue')
+      .style('background-color', d=>d.bgcolor)
       .attr('stroke-width', 1)
       .attr('stroke', (d) => {return d.stroke;})
       .on('click', function(d) {
+        console.log(d);
       });
   }
 
@@ -46,7 +52,7 @@ export default class Draw{
     linkCurrent.append('path')
       .datum(link)
       .attr('d', function(t) {
-        return self.creatPath({ x: t.source.x, y: t.source.y + t.source.r }, { x: t.target.x, y: t.target.y - t.target.r }, 10, 200);
+        return self.creatPath({ x: t.source.x, y: t.source.y + t.source.r }, { x: t.target.x, y: t.target.y - t.target.r }, 25, 25);
       })
       .attr('pointer-events', 'auto')
       .attr('marker-end', 'url(#arrow)')
@@ -55,7 +61,7 @@ export default class Draw{
     linkCurrent.append('path')
       .datum(link)
       .attr('d', function(t) {
-        return self.creatPath({ x: t.source.x, y: t.source.y + t.source.r }, { x: t.target.x, y: t.target.y - t.target.r }, 10, 200);
+        return self.creatPath({ x: t.source.x, y: t.source.y + t.source.r }, { x: t.target.x, y: t.target.y - t.target.r }, 50, 50);
       })
       .attr('pointer-events', 'auto')
       .attr('class', 'link backgroundLink')
@@ -63,8 +69,11 @@ export default class Draw{
   }
 
   creatPath(start, end, dx, dy) {
-      return 'M ' + start.x + ' ' + start.y + ' C ' + (start.x - dx) + ' ' + (start.y + dy) + ' ' + (end.x + dx) + ' ' + (end.y - dy) + ' ' + end.x + ' ' + end.y;
+      return 'M ' + start.x + ' ' + start.y + 
+            ' C ' + (start.x - dx) + ' ' + (start.y + dy) + ' ' + (end.x + dx) + ' ' + (end.y - dy) + ' ' + end.x + ' ' + end.y;
   }
+
+  
 
   zoom=(svg)=>{
     this.doZoom.zoom=null;

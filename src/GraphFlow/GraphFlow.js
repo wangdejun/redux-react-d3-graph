@@ -5,39 +5,20 @@ import './GraphFlow.less';
 class GraphFlow extends Component {
   constructor(props) {
     super(props);
-    this.state={
-      data:{
-        nodes:[
-          {'name':'graph-flow-1','x':500,'y':600, width:50, height:50},
-          {'name':'graph-flow-2','x':100,'y':200, width:50, height:50},
-          {'name':'graph-flow-3','x':200,'y':400, width:50, height:50},
-        ],
-        links:[
-          {
-            'source':{x:500, y: 600, r:10},
-            'target':{x:100, y: 200, r:10},
-          },
-          {
-            'source':{x:200, y: 400, r:10},
-            'target':{x:100, y: 200, r:10},
-          }
-        ],
-      }
-    }
     this.draw = new Draw();
   }
 
   componentDidMount(){
     let draw = this.draw;
     draw.init();
-    if(this.state.data&&this.state.data.nodes){
-      this.state.data.nodes.map(node=>{
+    if(this.props.store&&this.props.store.nodes){
+      this.props.store.nodes.map(node=>{
         draw.addNode(node);
       });
     };
 
-    if(this.state.data&&this.state.data.links){
-      this.state.data.links.map(link=>{
+    if(this.props.store&&this.props.store.links){
+      this.props.store.links.map(link=>{
         draw.addLink(link);
       })
     };
@@ -57,6 +38,8 @@ class GraphFlow extends Component {
   }
 
   render() {
+    console.log("0000this.props")
+    console.log(this.props);
     return (
       <div>
         <div style={{position:"fixed",width:"100%",height:'60px',border:"1px solid #eee"}}>
