@@ -1,6 +1,6 @@
 {
   "name": "redux-graph-flow",
-  "version": "0.0.17",
+  "version": "0.1.0",
   "description": "redux, react, d3 graph ,flow",
   "main": "index.js",
   "scripts": {
