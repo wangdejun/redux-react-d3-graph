@@ -1,17 +1,27 @@
 const initialState = {
     nodes:[
-        {'id':'1','x':500,'y':600, width:50, height:50, bgcolor:"rgba(47, 67, 114, 0.5)"},
-        {'id':'2','x':100,'y':200, width:50, height:50, bgcolor:"rgba(47, 67, 114, 0.5)"},
-        {'id':'3','x':200,'y':400, width:50, height:50, bgcolor:"rgba(47, 67, 114, 0.5)"},
+        {'id':'1','x':100,'y':100, width:50, height:50, bgcolor:"rgba(47, 67, 114, 0.5)"},
+        {'id':'2','x':400,'y':100, width:50, height:50, bgcolor:"rgba(47, 67, 114, 0.5)"},
+        {'id':'3','x':400,'y':400, width:50, height:50, bgcolor:"rgba(47, 67, 114, 0.5)"},
+        {'id':'4','x':100,'y':400, width:50, height:50, bgcolor:"rgba(47, 67, 114, 0.5)"},
+        {'id':'5','x':200,'y':200, width:50, height:50, bgcolor:"rgba(47, 67, 114, 0.5)"},
     ],
     links:[
         {
-            'source':{id:"1"},
+            'source':{id:"5"},
+            'target':{id:"1"},
+        },
+        {
+            'source':{id:"5"},
             'target':{id:"2"},
         },
         {
-            'source':{id:"1"},
+            'source':{id:"5"},
             'target':{id:"3"},
+        },
+        {
+            'source':{id:"5"},
+            'target':{id:"4"},
         }
     ],
 }

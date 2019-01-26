@@ -33,24 +33,22 @@ class GraphFlow extends Component {
     e.persist();
     e.preventDefault();
     e.stopPropagation();
-    console.log("HANDLE DROP");
   }
 
   handleDragOver(e) {
     e.persist();
     e.preventDefault();
     e.stopPropagation();
-    console.log("HANDLE DRAG OVER");
   }
 
   render() {
-    console.log("this.props=====>>>>>")
-    console.log(this.props);
     this.refresh();
     return (
       <div>
         <div style={{position:"fixed",width:"100%",height:'60px',border:"1px solid #eee"}}>
           <h2>redux-react-flow</h2> 
+          <div onClick={()=>this.draw.addNode({'id':'4','x':530,'y':600, width:50, height:50, bgcolor:"rgba(47, 67, 114, 0.5)"})}>添加节点</div>
+          <div>添加连线</div>
         </div>
         <ul style={{position:"fixed",top:'60px',listStyle:"none",cursor:"pointer"}}>
         {

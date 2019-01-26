@@ -16,7 +16,7 @@ export default class Draw{
         console.log("clicked node")
       })
       .datum(node)
-      .attr('class', 'node').attr('id', (d)=>`id${d.name}`)
+      .attr('class', 'node').attr('id', (d)=>`id${d.id}`)
       .on('mousedown',d=>{
         d3.event.stopPropagation();
         d3.event.preventDefault();
@@ -25,12 +25,7 @@ export default class Draw{
         return d;
       })
       .on('drag',d=>{
-        d.x = d3.event.x;
-        d.y = d3.event.y;
-        console.log("AA---->>>>")
-        store.dispatch(nodeAction.nodeUpdatePosition(d.id, {x:d3.event.x, y:d3.event.y}));        
-        console.log("AA---->>>>BB")
-        console.log(d3.event.x);
+        store.dispatch(nodeAction.nodeUpdatePosition(d.id, {x:d3.event.x, y:d3.event.y}));
         console.log("drag here");
       })
       .on('end', d=>{
@@ -38,12 +33,12 @@ export default class Draw{
       })
     );
 
+    console.log("addnode and append node----");
     nodes.append('rect')
       .attr('x', d=>d.x).attr('y', d=>d.y)
       .attr('class', 'nodeRect')
       .attr('width', d=>d.width)
       .attr('height', d=>d.height)
-      .style('background-color', d=>d.bgcolor)
       .attr('stroke-width', 1)
       .attr('stroke', (d) => {return d.stroke;})
       .on('click', function(d) {
