@@ -12,9 +12,7 @@ export default class Draw{
   addNode(node){
     let nodes = d3.select(".container")
       .append('g')
-      .on('click', (d)=>{
-        console.log("clicked node")
-      })
+      .on('click', (d)=>{console.log("clicked node")})
       .datum(node)
       .attr('class', 'node').attr('id', (d)=>`id${d.id}`)
       .on('mousedown',d=>{
@@ -25,6 +23,10 @@ export default class Draw{
         return d;
       })
       .on('drag',d=>{
+        d3.selectAll(`g .st`).remove();
+        d3.selectAll(`g #id${d.id}`).remove();
+        // d3.selectAll(`g .source${d.id}`).remove();
+        // d3.selectAll(`g .target${d.id}`).remove();
         store.dispatch(nodeAction.nodeUpdatePosition(d.id, {x:d3.event.x, y:d3.event.y}));
         console.log("drag here");
       })
@@ -33,7 +35,6 @@ export default class Draw{
       })
     );
 
-    console.log("addnode and append node----");
     nodes.append('rect')
       .attr('x', d=>d.x).attr('y', d=>d.y)
       .attr('class', 'nodeRect')
@@ -46,7 +47,7 @@ export default class Draw{
       });
   }
 
-  addLink=(link)=>{
+  addLink = (link) => {
     let self = this;
     let linkCurrent = d3.select('.container').append('g')
     .on('click', (d)=>{
@@ -57,24 +58,15 @@ export default class Draw{
     linkCurrent.append('path')
       .datum(link)
       .attr('d', function(t) {
-        return self.creatPath({ x: t.source.x, y: t.source.y + t.source.r }, { x: t.target.x, y: t.target.y - t.target.r }, 25, 25);
+        return self.creatPath({ x: t.source.x, y: t.source.y}, { x: t.target.x, y: t.target.y});
       })
-      .attr('pointer-events', 'auto')
-      .attr('marker-end', 'url(#arrow)')
-      .attr('class', 'link backgroundLink')
+      .attr("class", d=>`link backgroundLink source${d.source.id} target${d.target.id} st`)
 
-    linkCurrent.append('path')
-      .datum(link)
-      .attr('d', function(t) {
-        return self.creatPath({ x: t.source.x, y: t.source.y + t.source.r }, { x: t.target.x, y: t.target.y - t.target.r }, 50, 50);
-      })
-      .attr('pointer-events', 'auto')
-      .attr('class', 'link backgroundLink')
     return linkCurrent;
   }
 
-  creatPath(start, end, dx, dy) {
-      return 'M ' + start.x + ' ' + start.y + 
-            ' C ' + (start.x - dx) + ' ' + (start.y + dy) + ' ' + (end.x + dx) + ' ' + (end.y - dy) + ' ' + end.x + ' ' + end.y;
+  creatPath(start, end) {
+    return `M ${start.x} ${start.y} L ${end.x} ${(end.y)}`
   }
+
 }
