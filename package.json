@@ -1,10 +1,10 @@
 {
   "name": "redux-graph-flow",
-  "version": "1.0.10",
+  "version": "0.1.0",
   "description": "redux, react, d3 graph ,flow",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --hot --inline",
     "eslint": "./node_modules/.bin/eslint ./src/index.js",
     "eslint:fix": "./node_modules/.bin/eslint ./src/index.js --fix"
   },
@@ -29,6 +29,8 @@
     "d3": "^5.7.0",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
     "webpack-dev-server": "^3.1.8"
   },
   "devDependencies": {
@@ -41,11 +43,17 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
+    "css-loader": "^1.0.0",
     "eslint": "^5.6.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.1",
+    "html-webpack-plugin": "^3.2.0",
+    "less": "^3.8.1",
+    "less-loader": "^4.1.0",
+    "redux-devtools-extension": "^2.13.5",
+    "style-loader": "^0.23.0",
     "webpack": "^4.19.1",
     "webpack-cli": "^3.1.0"
   }
