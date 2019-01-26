@@ -22,8 +22,12 @@ export const nodeActivate = (id) =>{
     }
 }
 export const nodeUpdatePosition = (id, position)=>{
+    console.log("in action ----->>> ");
+    console.log(id);
+    console.log(position);
     return {
         type: NODE_UPDATE_POSITION,
+        id:id,
         position: position
     }
 }

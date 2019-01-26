@@ -1,4 +1,7 @@
 const d3 = require('d3');
+import store from "../Store/store";
+import * as nodeAction from "../Action/nodes";
+import * as linkAction from "../Action/links";
 
 
 export default class Draw{
@@ -11,29 +14,31 @@ export default class Draw{
       .append('g')
       .on('click', (d)=>{
         console.log("clicked node")
-        console.log(d);
       })
       .datum(node)
-      .attr('class', 'node').attr('id', (d)=>`id${d.name}`)
-      .on('mousedown',d=>{d3.event.stopPropagation()})
+      .attr('class', 'node').attr('id', (d)=>`id${d.id}`)
+      .on('mousedown',d=>{
+        d3.event.stopPropagation();
+        d3.event.preventDefault();
+      })
       .call(d3.drag().filter(d=>{
         return d;
       })
-        .on('drag',d=>{
-          console.log(d);
-          console.log("drag here");
-        })
-        .on('end', d=>{
-          console.log(d);
-          console.log("drag end here!");
-        })
+      .on('drag',d=>{
+        store.dispatch(nodeAction.nodeUpdatePosition(d.id, {x:d3.event.x, y:d3.event.y}));
+        console.log("drag here");
+      })
+      .on('end', d=>{
+        console.log("drag end here!");
+      })
     );
+
+    console.log("addnode and append node----");
     nodes.append('rect')
       .attr('x', d=>d.x).attr('y', d=>d.y)
       .attr('class', 'nodeRect')
       .attr('width', d=>d.width)
       .attr('height', d=>d.height)
-      .style('background-color', d=>d.bgcolor)
       .attr('stroke-width', 1)
       .attr('stroke', (d) => {return d.stroke;})
       .on('click', function(d) {
@@ -71,42 +76,5 @@ export default class Draw{
   creatPath(start, end, dx, dy) {
       return 'M ' + start.x + ' ' + start.y + 
             ' C ' + (start.x - dx) + ' ' + (start.y + dy) + ' ' + (end.x + dx) + ' ' + (end.y - dy) + ' ' + end.x + ' ' + end.y;
-  }
-
-  
-
-  zoom=(svg)=>{
-    this.doZoom.zoom=null;
-    let zoom = d3.zoom().scaleExtent([1 / 2, 5]).on('start',()=>{
-      console.log("zoom start");
-    }).on('zoom',()=>{
-      var transform = d3.event.transform;
-      this.transform(d3.select("#dagre_main"), transform)
-      this.doZoom.scaleNow = transform.k;
-    })
-    this.doZoom.zoom = zoom;
-    svg.call(zoom).on("dblclick.zoom", null).on("wheel.zoom",null);
-  }
-  
-  initSvgEvent=(svg)=>{
-    this.zoom(svg);
-    svg.on('click',(d)=>{
-      console.log("initSvgEvent");
-      console.log(d)
-    })
-    svg.on('mousemove',(d)=>{
-      console.log('mousemove');
-      console.log(d)
-    })
-    svg.on('mouseup', (d)=>{
-      console.log('mouseup');
-      console.log(d)
-    })
-  }
-
-  init(){
-      const svg = d3.select("#board");
-      this.initSvgEvent(svg)
-      console.log("run here!");
   }
 }

@@ -25,11 +25,14 @@ const nodes = (state=initialState.nodes, action)=>{
                 id: action.id,
             }
         case NODE_UPDATE_POSITION:
-            return {
-                ...state,
-                id: action.id,
-                position: action.position
-            }
+            state.forEach(item=>{
+                if(item.id===action.id){
+                    item.x = action.position.x;
+                    item.y = action.position.y;
+                }
+            });
+            return [...state];
+
         default:
             return state;
     }

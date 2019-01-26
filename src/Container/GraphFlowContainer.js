@@ -29,8 +29,8 @@ const mapDispatchToProps = dispatch => {
         nodeActivate: (id)=>{
             dispatch(nodeActivate(id));
         },
-        nodeUpdatePosition: (position)=>{
-            dispatch(nodeUpdatePosition(position));
+        nodeUpdatePosition: (id, position)=>{
+            dispatch(nodeUpdatePosition(id, position));
         },
         linkAdd: (id)=>{
             dispatch(linkAdd(id));
