@@ -29,7 +29,6 @@ export default class Draw{
         console.log("drag here");
       })
       .on('end', d=>{
-        console.log(store)
         console.log("drag end here!");
       })
     );

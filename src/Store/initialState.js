@@ -23,22 +23,23 @@ const initialState = {
             'source':{id:"5"},
             'target':{id:"4"},
         },
-        {
-            'source':{id:"2"},
-            'target':{id:"3"},
-        }
     ],
 }
 
-initialState.links.forEach(item=>{
-    item.source.x = initialState.nodes.filter(x=>x.id===item.source.id)[0].x
-    item.source.y = initialState.nodes.filter(x=>x.id===item.source.id)[0].y
-    item.source.r = 50;
-    item.target.x = initialState.nodes.filter(x=>x.id===item.target.id)[0].x
-    item.target.y = initialState.nodes.filter(x=>x.id===item.target.id)[0].y
-    item.target.r = 50;
-})
+
+function getInitialValue(initialState){
+    initialState.links.forEach(item=>{
+        item.source.x = initialState.nodes.filter(x=>x.id===item.source.id)[0].x
+        item.source.y = initialState.nodes.filter(x=>x.id===item.source.id)[0].y
+        item.source.r = 50;
+        item.target.x = initialState.nodes.filter(x=>x.id===item.target.id)[0].x
+        item.target.y = initialState.nodes.filter(x=>x.id===item.target.id)[0].y
+        item.target.r = 50;
+    })
+    return initialState
+}
 
 
 
-export default initialState;
+
+export default getInitialValue(initialState);
