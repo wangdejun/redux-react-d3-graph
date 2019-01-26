@@ -9,17 +9,22 @@ class GraphFlow extends Component {
   }
 
   componentDidMount(){
-    let draw = this.draw;
-    draw.init();
-    if(this.props.store&&this.props.store.nodes){
+    this.refresh();
+  }
+
+  refresh = () => {
+    console.log("refresh----->>>")
+    console.log(this.props.store.nodes);
+
+    if(this.props.store && this.props.store.nodes){
       this.props.store.nodes.map(node=>{
-        draw.addNode(node);
+        this.draw.addNode(node);
       });
     };
 
     if(this.props.store&&this.props.store.links){
       this.props.store.links.map(link=>{
-        draw.addLink(link);
+        this.draw.addLink(link);
       })
     };
   }
@@ -28,18 +33,20 @@ class GraphFlow extends Component {
     e.persist();
     e.preventDefault();
     e.stopPropagation();
-    console.log(e.nativeEvent.offsetX);
-    console.log(e.nativeEvent.offsetY);
+    console.log("HANDLE DROP");
   }
+
   handleDragOver(e) {
     e.persist();
     e.preventDefault();
     e.stopPropagation();
+    console.log("HANDLE DRAG OVER");
   }
 
   render() {
-    console.log("0000this.props")
+    console.log("this.props=====>>>>>")
     console.log(this.props);
+    this.refresh();
     return (
       <div>
         <div style={{position:"fixed",width:"100%",height:'60px',border:"1px solid #eee"}}>
@@ -50,15 +57,7 @@ class GraphFlow extends Component {
           ["drag-text1","drag-text2","drag-text3","drag-text4"].map(item=><li draggable={true} key={item}>{item}</li>)
         }
         </ul>
-        <svg id="board" width={1500} height={2000} onDragOver={this.handleDragOver} onDrop={this.handleDrop} style={{border:"1px solid #aaa", marginLeft:"200px",marginTop:"60px"}}>
-          <g>
-            <defs>
-              <marker id="arrow" markerUnits="strokeWidth" markerWidth="12" markerHeight="12" viewBox="0 0 12 12" refX="6" refY="6" orient="auto">
-                <path d="" fill="none"></path>
-                <path d="M10 60 C 20 80, 40 80, 50 60" stroke="3" fill="none"/>
-              </marker>
-            </defs>
-          </g>
+        <svg id="board" width={1500} height={2000} onDragOver={this.handleDragOver} onDrop={this.handleDrop} style={{backgroundColor:"#aaa", marginLeft:"200px",marginTop:"60px"}}>
           <g id="dagre_main" className="container"></g>
         </svg>
         <svg width="100" height="100"></svg>
