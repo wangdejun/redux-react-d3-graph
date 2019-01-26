@@ -1,27 +1,37 @@
 const initialState = {
     nodes:[
-        {'id':'1','x':100,'y':100, width:26, height:26, bgcolor:"rgba(47, 67, 114, 0.5)"},
-        {'id':'2','x':400,'y':100, width:26, height:26, bgcolor:"rgba(47, 67, 114, 0.5)"},
-        {'id':'3','x':400,'y':400, width:26, height:26, bgcolor:"rgba(47, 67, 114, 0.5)"},
-        {'id':'4','x':100,'y':400, width:26, height:26, bgcolor:"rgba(47, 67, 114, 0.5)"},
-        {'id':'5','x':200,'y':200, width:26, height:26, bgcolor:"rgba(47, 67, 114, 0.5)"},
+        {'id':'1','x':250,'y':100, width:26, height:26, bgcolor:"rgba(47, 67, 114, 0.5)"},
+        {'id':'2','x':150,'y':150, width:26, height:26, bgcolor:"rgba(47, 67, 114, 0.5)"},
+        {'id':'3','x':350,'y':150, width:26, height:26, bgcolor:"rgba(47, 67, 114, 0.5)"},
+        {'id':'4','x':100,'y':300, width:26, height:26, bgcolor:"rgba(47, 67, 114, 0.5)"},
+        {'id':'5','x':200,'y':300, width:26, height:26, bgcolor:"rgba(47, 67, 114, 0.5)"},
+        {'id':'6','x':300,'y':300, width:26, height:26, bgcolor:"rgba(47, 67, 114, 0.5)"},
+        {'id':'7','x':400,'y':300, width:26, height:26, bgcolor:"rgba(47, 67, 114, 0.5)"},
     ],
     links:[
         {
-            'source':{id:"5"},
-            'target':{id:"1"},
-        },
-        {
-            'source':{id:"5"},
+            'source':{id:"1"},
             'target':{id:"2"},
         },
         {
-            'source':{id:"5"},
+            'source':{id:"1"},
             'target':{id:"3"},
         },
         {
-            'source':{id:"5"},
+            'source':{id:"2"},
             'target':{id:"4"},
+        },
+        {
+            'source':{id:"2"},
+            'target':{id:"5"},
+        },
+        {
+            'source':{id:"3"},
+            'target':{id:"6"},
+        },
+        {
+            'source':{id:"3"},
+            'target':{id:"7"},
         },
     ],
 }

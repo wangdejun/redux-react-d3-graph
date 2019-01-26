@@ -2,6 +2,10 @@
 # redux-react-d3-flow-graph
 <a href='https://www.npmjs.com/package/redux-graph-flow'>redux-graph-flow</a> as a npm package
 
+<img src="./images/flow.png" style="width:300px;height:300px;">
+<img src="./images/tree.png" style="width:300px;height:300px;">
+
+
 ## a tree flow graph component
 This will be a simple react component which showing how to draw a tree graph with d3, and synchronize state with other components, using Redux.
 
@@ -29,6 +33,7 @@ When we want to draw a flow which can be operated on the page  and synchroize st
 ```npm start```
 
 then open the ```http://localhost:9000/```in your browser.
+<>
 
 ## eslint 
 * use the command below to lint the code
