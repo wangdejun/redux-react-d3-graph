@@ -23,14 +23,13 @@ export default class Draw{
         return d;
       })
       .on('drag',d=>{
-        d3.selectAll(`g .st`).remove();
+        d3.selectAll('g .st').remove();
         d3.selectAll(`g #id${d.id}`).remove();
-        // d3.selectAll(`g .source${d.id}`).remove();
-        // d3.selectAll(`g .target${d.id}`).remove();
         store.dispatch(nodeAction.nodeUpdatePosition(d.id, {x:d3.event.x, y:d3.event.y}));
         console.log("drag here");
       })
       .on('end', d=>{
+        console.log(store)
         console.log("drag end here!");
       })
     );
@@ -40,8 +39,10 @@ export default class Draw{
       .attr('class', 'nodeRect')
       .attr('width', d=>d.width)
       .attr('height', d=>d.height)
-      .attr('stroke-width', 1)
-      .attr('stroke', (d) => {return d.stroke;})
+      .attr('fill', "pink")
+      .attr("stroke", "black")
+      .attr('stroke-width', 3)
+      .text(d=>d.id)
       .on('click', function(d) {
         console.log(d);
       });
@@ -58,15 +59,19 @@ export default class Draw{
     linkCurrent.append('path')
       .datum(link)
       .attr('d', function(t) {
-        return self.creatPath({ x: t.source.x, y: t.source.y}, { x: t.target.x, y: t.target.y});
+        return self.creatPath({ 
+          x: t.source.x, 
+          y: t.source.y
+        }, { 
+          x: t.target.x, 
+          y: t.target.y
+        });
       })
       .attr("class", d=>`link backgroundLink source${d.source.id} target${d.target.id} st`)
-
     return linkCurrent;
   }
 
   creatPath(start, end) {
-    return `M ${start.x} ${start.y} L ${end.x} ${(end.y)}`
+    return `M ${start.x+13} ${start.y+13} L ${end.x+13} ${(end.y+13)}`
   }
-
 }

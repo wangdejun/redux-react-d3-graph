@@ -1,10 +1,10 @@
 const initialState = {
     nodes:[
-        {'id':'1','x':100,'y':100, width:25, height:25, bgcolor:"rgba(47, 67, 114, 0.5)"},
-        {'id':'2','x':400,'y':100, width:25, height:25, bgcolor:"rgba(47, 67, 114, 0.5)"},
-        {'id':'3','x':400,'y':400, width:25, height:25, bgcolor:"rgba(47, 67, 114, 0.5)"},
-        {'id':'4','x':100,'y':400, width:25, height:25, bgcolor:"rgba(47, 67, 114, 0.5)"},
-        {'id':'5','x':200,'y':200, width:25, height:25, bgcolor:"rgba(47, 67, 114, 0.5)"},
+        {'id':'1','x':100,'y':100, width:26, height:26, bgcolor:"rgba(47, 67, 114, 0.5)"},
+        {'id':'2','x':400,'y':100, width:26, height:26, bgcolor:"rgba(47, 67, 114, 0.5)"},
+        {'id':'3','x':400,'y':400, width:26, height:26, bgcolor:"rgba(47, 67, 114, 0.5)"},
+        {'id':'4','x':100,'y':400, width:26, height:26, bgcolor:"rgba(47, 67, 114, 0.5)"},
+        {'id':'5','x':200,'y':200, width:26, height:26, bgcolor:"rgba(47, 67, 114, 0.5)"},
     ],
     links:[
         {
@@ -22,6 +22,10 @@ const initialState = {
         {
             'source':{id:"5"},
             'target':{id:"4"},
+        },
+        {
+            'source':{id:"2"},
+            'target':{id:"3"},
         }
     ],
 }
