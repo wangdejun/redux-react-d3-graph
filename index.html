@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <style>
+        .my-class{
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+    <p>Hello World 1</p>
+    <p id='p2'>Hello World 2</p>
+    <p>Hello World 2</p>
+</body>
+    <script>
+        const p = d3.select('body').selectAll('p').text("wang");
+        p.style('color', 'red').style('font-size','14px');
+
+        var dataset = ["I like cat","I like snake"];
+
+        p.datum(dataset).text((d,i)=>d);
+
+        const p2 = d3.select('#p2').style("color","blue");
+
+        var width = 300;  //画布的宽度
+        var height = 300;   //画布的高度
+
+        var svg = d3.select("body")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .attr('x', 200)
+            .attr('y', 300)
+            .style("background-color", "grey")
+
+        var dataset_1 = [ 250 , 210 , 170 , 130 , 90 ];
+        var rectHeight = 25;
+
+        svg.selectAll("rect")
+        .data(dataset_1)
+        .enter()
+        .append('rect')
+        .attr("x",20)
+        .attr("y",function(d,i){
+             return i * rectHeight;
+        })
+        .attr("width", d=>d)
+        .attr("height",rectHeight - 3)
+        .attr("fill","steelblue");
+
+    </script>
+</html>
